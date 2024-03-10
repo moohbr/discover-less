@@ -1,4 +1,5 @@
-# discover-less
+# ![](images/icons2.png) discover-less
+
 
 This script hides the 'Discover More specific elements from the Twitter user interface and prevents them from reappearing.
 
