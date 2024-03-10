@@ -10,7 +10,11 @@ This script hides the 'Discover More specific elements from the Twitter user int
 
 ### Installation
 
-This script is intended to be used with as browser extension.
+This script is intended to be used as a browser extension, but I won't (and can't) pay 5$ to put it on the Chrome Extension Store so you will need to install it manually.
+
+1. Download repository as a zip.
+2. Go to your Chrome Extensions [page](chrome://extensions/) chrome://extensions/ and check the box for Developer mode in the top right.
+3. Click the Load unpacked extension button and select the unzipped folder for your extension to install it.
 
 ### Usage
 
