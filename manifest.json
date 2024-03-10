@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "Discover Less",
+    "version" : "1.0.0",
+    "description": "A simple extension that hides the 'Discover More' on Twitter.",
+    "author": "moohbr@gmail.com",
+    "content_scripts": [
+        {
+            "matches": ["https://twitter.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "icons": {
+        "48": "images/icons2.png",
+        "128": "images/icons1.png"
+    },
+    "permissions": [
+        "activeTab"
+    ]
+}
