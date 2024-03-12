@@ -31,6 +31,32 @@ function findDiscoverMore() {
 }
 
 /**
+ * Removes elements containing the text "This Post is from an account you muted."
+ * - Targets elements with the data-testid="cellInnerDiv" attribute.
+ * - Verifies the text content of the element.
+ * - Uses display: none to avoid Twitter re-rendering.
+ * - This function is separate from findDiscoverMore to avoid unnecessary checks.
+ */
+function findMutedPosts() {
+    // Text to check for in muted posts
+    const blockWord = 'This Post is from an account you muted.';
+
+    const elements = document.querySelectorAll('div[data-testid="cellInnerDiv"]');
+
+    // Interate through the each element and check if the muted post is present
+    elements.forEach(element => {
+        const heading = element.querySelector('span.css-1qaijid.r-bcqeeo.r-qvutc0.r-poiln3');
+
+        const elementText = heading && heading.textContent.trim();
+        // Check if any blocked word is present in the element text
+        if (elementText && elementText === blockWord) {
+            // Remove the current element and its following siblings with the test ID
+            element.style.display = 'none';
+        }
+    })
+}
+
+/**
  * Recursively removes elements from a parent node, starting from a given element.
  * - Avoids Twitter re-rendering by using display: none instead of removeChild.
  * @param element The starting element to remove.
@@ -49,3 +75,6 @@ function removeElements(element, parentNode) {
 // Create a MutationObserver to monitor for changes in the DOM
 const mutationObserver = new MutationObserver(findDiscoverMore);
 mutationObserver.observe(document, { childList: true, subtree: true });
+
+const mutationObserver2 = new MutationObserver(findMutedPosts);
+mutationObserver2.observe(document, { childList: true, subtree: true });
